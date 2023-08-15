@@ -68,13 +68,13 @@ bit库已删除，请用操作符操作，详见 utility.lua
 
 ========== Card ==========
 ●int[,int] Card.GetCode(Card c)
-返回c的当前代号（可能因为效果改变）
+返回c的当前卡号（可能因为效果改变）
 
 ●int Card.GetOriginalCode(Card c)
-返回c的卡片记载的代号
+返回c的卡片记载的卡号
 
 ●int,int Card.GetOriginalCodeRule(Card c)
-返回c规则上的代号（这张卡规则上当作...使用）
+返回c规则上的卡号（这张卡规则上当作...使用）
 
 ●int[,int,...] Card.GetFusionCode(Card c)
 返回c作为融合素材时的卡号（包括c原本的卡号）
@@ -1593,13 +1593,13 @@ TIMING_EQUIP				=0x2000000  	--装备时点
 TIMING_BATTLE_STEP_END		=0x4000000  	--戰鬥步驟結束時
 
 ●int,int Duel.GetEnvironment()
-返回两个值，表示当前场地代号，以及当前场地效果的来源玩家
-场地代号指当前生效的场地卡的代号，或者海神的巫女等卡把场地变化效果的值
+返回两个值，表示当前场地卡号，以及当前场地效果的来源玩家
+场地卡号指当前生效的场地卡的卡号，或者海神的巫女等卡把场地变化效果的值
 来源玩家指当前生效的场地卡的控制者，或者海神的巫女等卡的控制者
 
 ●bool Duel.IsEnvironment(int code[, int player=PLAYER_ALL, int loc = LOCATION_FZONE + LOCATION_ONFIELD])
-检查场地代号是否是code [，来源玩家是否是 player][，生效区域是否在 loc 内]
-场地代号指当前生效的场地卡的代号，或者海神的巫女把场地变化效果的值
+检查场地卡号是否是code [，来源玩家是否是 player][，生效区域是否在 loc 内]
+场地卡号指当前生效的场地卡的卡号，或者海神的巫女把场地变化效果的值
 来源玩家指当前生效的场地卡的控制者，或者海神的巫女等卡的控制者
 
 ●void Duel.Win(int player, int win_reason)
@@ -2102,10 +2102,10 @@ ATTRIBUTE_DEVINE	=0x40		--神
 让玩家宣言一个[min-max]等级并返回
 
 ●int Duel.AnnounceCard(int player[, int type=(TYPE_MONSTER | TYPE_SPELL | TYPE_TRAP)])
-让玩家player宣言一个[type类型的]卡片代号（比如：禁止令）
+让玩家player宣言一个[type类型的]卡片卡号（比如：禁止令）
 
 ●int Duel.AnnounceCardFilter(int player, ...)
-让玩家player宣言一个满足条件的卡片代号，条件是额外参数，并且都是 int 类型，用于宣言某些特定范围的卡
+让玩家player宣言一个满足条件的卡片卡号，条件是额外参数，并且都是 int 类型，用于宣言某些特定范围的卡
 例如：虚空俏丽魔术师
 c28776350.announce_filter={TYPE_FUSION+TYPE_SYNCHRO+TYPE_XYZ+TYPE_LINK,OPCODE_ISTYPE,OPCODE_NOT}
 local ac=Duel.AnnounceCardFilter(tp,table.unpack(c28776350.announce_filter))
